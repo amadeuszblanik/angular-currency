@@ -1,0 +1,25 @@
+<div class="stock-widget_wrapper">
+  <div class="stock-widget">
+    <div class="info">
+      <div class="name">
+        <app-input [value]="value"></app-input>
+      </div>
+      <div class="fullname">
+        <app-currency-from-input [value]="value"></app-currency-from-input>
+      </div>
+    </div>
+    <div class="badge">
+      <span class="value">{{ calculated }}</span> <span class="currency">{{ value.to }}</span> <button (click)="getApiData()" class="button-calculate">⏎</button>
+    </div>
+    <div class="more-data">
+      <div class="change earn">
+        {{ value.from }}{{ value.to }}={{fxValue}}
+      </div>
+      <div class="change-percentage earn">
+        <app-currency-to-input [value]="value"></app-currency-to-input>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>&copy 2019 | Code by <a href="http://blanik.me">Amadeusz Blanik (Blanik.me)</a></footer>
