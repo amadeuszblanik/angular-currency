@@ -1,4 +1,4 @@
-import {Value} from './value';
+import {Value} from '../models/value';
 
 export const VALUE: Value = {
   value: 0,

@@ -1,3 +1,3 @@
-<select [(ngModel)]="value.from">
+<select [(ngModel)]="value[valueKind]" (change)="changed()">
   <option *ngFor="let currency of currencies" [ngValue]="currency">{{currency}}</option>
 </select>

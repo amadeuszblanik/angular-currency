@@ -14,10 +14,6 @@ export class DataService {
   public getRequest(from: string, to: string) {
     const apiUrl = this.REST_API_SERVER + from + to;
 
-    if (from === to) {
-      return;
-    }
-
     return this.httpClient.get(apiUrl);
   }
 }

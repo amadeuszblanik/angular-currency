@@ -5,7 +5,7 @@
         <app-input [value]="value"></app-input>
       </div>
       <div class="fullname">
-        <app-currency-from-input [value]="value"></app-currency-from-input>
+        <app-currency-dropdown [value]="value" [valueKind]="'from'" (valueEventEmitter)="onDropdownChanged()"></app-currency-dropdown>
       </div>
     </div>
     <div class="badge">
@@ -16,7 +16,7 @@
         {{ value.from }}{{ value.to }}={{fxValue}}
       </div>
       <div class="change-percentage earn">
-        <app-currency-to-input [value]="value"></app-currency-to-input>
+        <app-currency-dropdown [value]="value" [valueKind]="'to'" (valueEventEmitter)="onDropdownChanged()"></app-currency-dropdown>
       </div>
     </div>
   </div>

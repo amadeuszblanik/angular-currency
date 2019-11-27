@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CurrencyToInputComponent } from './currency-to-input.component';
+import { CurrencyDropdownComponent } from './currency-dropdown.component';
 
-describe('CurrencyToInputComponent', () => {
-  let component: CurrencyToInputComponent;
-  let fixture: ComponentFixture<CurrencyToInputComponent>;
+describe('CurrencyFromInputComponent', () => {
+  let component: CurrencyDropdownComponent;
+  let fixture: ComponentFixture<CurrencyDropdownComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CurrencyToInputComponent ]
+      declarations: [ CurrencyDropdownComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CurrencyToInputComponent);
+    fixture = TestBed.createComponent(CurrencyDropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

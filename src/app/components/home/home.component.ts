@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { DataService } from '../data.service';
-import { Value } from '../value';
-import { ValueService } from '../value.service';
+import { DataService } from '../../services/data.service';
+import { Value } from '../../models/value';
+import { ValueService } from '../../services/value.service';
 
 interface Data {
   rates: {
@@ -25,6 +25,11 @@ export class HomeComponent implements OnInit {
 
   constructor(private dataService: DataService, private  valueService: ValueService) { }
 
+  ngOnInit() {
+    this.getValue();
+    this.getApiData();
+  }
+
   calc(): void {
     this.calculated = parseFloat((this.value.value * this.fxValue).toFixed(2));
   }
@@ -35,16 +40,16 @@ export class HomeComponent implements OnInit {
     this.getApiData();
   }
 
-  public getApiData(): void {
-    this.dataService.getRequest(this.value.from, this.value.to).subscribe((data: Data) => {
-      this.fxValue = data.rates[this.value.from + this.value.to].rate;
-    });
-    this.calc();
+  onDropdownChanged(): void {
+    this.getApiData();
   }
 
-  ngOnInit() {
-    this.getValue();
-    this.getApiData();
+  public getApiData(): void {
+    const { from, to } = this.value;
+    this.dataService.getRequest(from, to).subscribe((data: Data) => {
+      this.fxValue = from !== to ? data.rates[from + to].rate : 1;
+      this.calc();
+    });
   }
 
 }

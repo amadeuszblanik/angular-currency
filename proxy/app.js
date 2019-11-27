@@ -13,7 +13,7 @@ const headersSettings = function (proxyReqOpts, srcReq) {
     return proxyReqOpts;
 };
 
-app.use(cors())
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
